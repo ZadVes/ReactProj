@@ -1,0 +1,21 @@
+.tesla-flex-card{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.photo{
+    display: block;
+    width: 100vw;  
+    height: 100vh; 
+    object-fit: cover;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1; 
+}
+
+.scrol-panel{
+    margin-bottom: 0;
+    overflow: hidden;
+}
