@@ -10,6 +10,7 @@ class App extends React.Component{
                 <Header title="Charging"/>
                 <Header title="Discover"/>
                 <Header title="Shop"/>
+                <Header title="Bob"/>
                 <button>Hy, bro</button>
             </div>
         )
