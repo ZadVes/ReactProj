@@ -3,9 +3,11 @@ import React from "react";
 class Header extends React.Component {
     render(){
         return(
-            <button className="header">
-                {this.props.title}
-            </button>
+            <div>
+                <button className="button-header">
+                    {this.props.title}
+                </button>
+            </div>
         )
     }
 }

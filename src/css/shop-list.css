@@ -11,11 +11,29 @@
     object-fit: cover;
     position: absolute;
     left: 0;
-    top: 0;
     z-index: -1; 
 }
 
 .scrol-panel{
-    margin-bottom: 0;
     overflow: hidden;
+}
+
+.button-card{
+    margin: auto;
+    inline-size: auto;
+    max-inline-size: 100%;
+    border-radius: 5px;
+    font-size: 14px;
+    width: 252px;
+    height: 40px;
+    padding-inline: 24px;
+    border: none;
+    background-color: #3e6ae1;
+    color: whitesmoke;
+    transition: .2s linear;
+    cursor: pointer;
+}
+
+.button-card:hover{
+    background-color: #3457b1;
 }
