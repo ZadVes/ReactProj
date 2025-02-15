@@ -43,11 +43,17 @@ class App extends Component{
                 <div className='scrol-panel'>
                     <ShopList url="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA-v3.png"
                     name = "Model Y"
+                    price = "$299/mo Leasing"
                     inf = "From $31,4901 After Est. Savings"
-                    title = "Order now"
                     />
                     <ShopList url="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-2-Desktop-NA.png"
-                    title = "Order now"
+                    name = "New Model Y"
+                    inf = "Deliveries Begin in March"
+                    />
+                    <ShopList url="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Cybertruck-Desktop-v3.png"
+                    name = "Cybertruk"
+                    price = "$749/mo Leasing"
+                    buttonClassName = "custom-button"
                     />
                 </div>
             </div>

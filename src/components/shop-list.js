@@ -16,8 +16,11 @@ class ShopList extends React.Component{
                         {this.props.inf}
                     </div>
                     <div className="button-flex">
-                        <button className="button-card">
-                            {this.props.title}
+                        <button className={`button-order ${this.props.buttonClassName || ""}`}>
+                            Order Now
+                        </button>
+                        <button className={`button-more ${this.props.buttonClassName || ""}`}>
+                            Learn More
                         </button>
                     </div>
                 </div>
@@ -25,5 +28,6 @@ class ShopList extends React.Component{
         )
     }
 }
+
 
 export default ShopList
