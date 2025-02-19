@@ -34,6 +34,7 @@ class App extends Component{
         return(
             <div className="up">
                 <div className={`header ${this.state.showHeader ? "" : "hidden"}`}>
+                    <img className="logo" src={require("./imeges/image.png")} alt="My Image"/>
                     <Header title="Vehicalse"/>
                     <Header title="Energy"/>
                     <Header title="Charging"/>
