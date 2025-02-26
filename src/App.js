@@ -34,12 +34,7 @@ class App extends Component{
         return(
             <div className="up">
                 <div className={`header ${this.state.showHeader ? "" : "hidden"}`}>
-                    <img className="logo" src={require("./imeges/image.png")} alt="My Image"/>
-                    <Header title="Vehicalse"/>
-                    <Header title="Energy"/>
-                    <Header title="Charging"/>
-                    <Header title="Discover"/>
-                    <Header title="Shop"/>
+                    <Header />
                 </div>
                 <div className='scrol-panel'>
                     <ShopList url="https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Homepage-Model-Y-Desktop-NA-v3.png"

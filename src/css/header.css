@@ -7,18 +7,28 @@ body{
 }
 
 .header{
-    display: flex;
     position: fixed;
-    justify-content: center;
-    align-items: center;
     z-index: 1000;
     width: 100vw;
     top: 0;
     left: 0;
     height: 56px;
-    gap: 20px;
     transition: transform 0.3s ease-in-out;
     background-color: whitesmoke;
+}
+
+.header-main{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.button{
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .button-header{
@@ -35,5 +45,6 @@ body{
 }
 
 .logo{
-    display: flex;
+    clear: both;
+    float: left;
 }
