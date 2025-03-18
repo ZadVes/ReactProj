@@ -1,17 +1,20 @@
 import React, {Component} from "react";
 import Header from './components/header';
 import ShopList from './components/shop-list';
+import {fetchItems, addItem} from './API/api';
 
 class App extends Component{
     constructor(props) {
         super(props);
         this.state = {
             showHeader: true,
-            lastScrollY: 0
+            lastScrollY: 0,
+            items: []
         };
     }
 
     handleScroll = () => {
+
         const currentScrollY = window.scrollY;
 
         if (currentScrollY > this.state.lastScrollY) {
@@ -24,12 +27,23 @@ class App extends Component{
     };
 
     componentDidMount() {
+        this.loadItems();
         window.addEventListener("scroll", this.handleScroll);
     }
 
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }
+    //Обрабатывает локальные данные
+    loadItems = async () => {
+        try {
+            const items = await fetchItems();
+            this.setState({ items });
+        } catch (error) {
+            console.error("Ошибка при загрузке товаров", error);
+        }
+    };
+
     render(){
         return(
             <div className="up">
