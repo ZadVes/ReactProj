@@ -1,13 +1,20 @@
+
 services:
   mongo:
-    image: mongo
+    image: mongo:5.0
     ports: ["27017:27017"]
     volumes: [mongo-data:/data/db]
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_DATABASE: tesla_shop
+    restart: unless-stopped
 
   redis:
-    image: redis
+    image: redis:alpine
     ports: ["6379:6379"]
     volumes: [redis-data:/data]
+    restart: unless-stopped
 
   server:
     build: 
@@ -16,14 +23,19 @@ services:
     ports: ["5000:5000"]
     environment:
       - NODE_ENV=development
-      - MONGO_URI=mongodb://mongo:27017/tesla_shop
+      - MONGO_URI=mongodb://root:example@mongo:27017/tesla_shop?authSource=admin
     depends_on: [mongo, redis]
+    restart: unless-stopped
 
   client:
     build:
       context: .
       dockerfile: client/Dockerfile
-    ports: ["80:80"]
+    volumes:
+      - ./client:/app/client
+      - /app/node_modules  # Изолируем зависимости
+    ports:
+      - "8080:80" 
     depends_on: [server]
 
 volumes:

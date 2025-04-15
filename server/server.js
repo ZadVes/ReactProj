@@ -1,7 +1,8 @@
+const path = require('path'); // Добавьте эту строку
 const express = require('express');
 const { connectDB } = require('./config/db');
 const productRoutes = require('./routers/productRouts');
-const orderRoutes = require('./routes/orderRoutes');
+const orderRoutes = require('./routers/orderRoutes');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -10,15 +11,27 @@ app.use(express.json());
 
 connectDB();
 
-// Маршруты
+// Базовый маршрут
+app.get('/', (req, res) => {
+  res.json({
+    message: 'API is working',
+    endpoints: {
+      products: '/api/products',
+      orders: '/api/orders'
+    }
+  });
+});
+
+// API маршруты
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
-
+// Production-режим (для фронтенда)
 if (process.env.NODE_ENV === 'production') {
-  app.use(express.static('client/build'));
+  app.use(express.static(path.join(__dirname, 'client/build')));
+  
   app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
   });
 }
 
