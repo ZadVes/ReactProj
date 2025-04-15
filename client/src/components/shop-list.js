@@ -1,7 +1,21 @@
 import React from "react";
 import {useNavigate} from "react-router-dom";
+import {createOrder} from "../API/api";
 
 class ShopList extends React.Component{
+    handleOrder = async () => {
+        try {
+          await createOrder({
+            product: {
+              name: this.props.name,
+              price: this.props.price
+            }
+          });
+          this.props.navigate('/order-success');
+        } catch (error) {
+          console.error('Order failed:', error);}
+    };
+
     render(){
         return(
             <div className="tesla-flex-card">
@@ -17,14 +31,7 @@ class ShopList extends React.Component{
                         {this.props.inf}
                     </div>
                     <div className="button-flex">
-                        <button className={`button-order ${this.props.buttonClassName || ""}`}onClick={() => this.props.navigate('/order', { state: { 
-                            product: {
-                                name: this.props.name,
-                                price: this.props.price,
-                                url: this.props.url,
-                                inf: this.props.inf
-                            }
-                        }})}>
+                        <button className={`button-order ${this.props.buttonClassName || ""}`}onClick={this.handleOrder}>
                             Order Now
                         </button>
                         <button className={`button-more ${this.props.buttonClassName || ""}`}>
