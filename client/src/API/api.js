@@ -7,6 +7,9 @@ const API = axios.create({
   timeout: 10000
 });
 
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+
 export const fetchProducts = async (params = {}) => {
   try {
     const response = await API.get('/products', { params });

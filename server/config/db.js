@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const redis = require('redis');
 const { promisify } = require('util');
 
+require('dotenv').config();
+
 // In-memory хранилище
 const memoryDB = new Map();
 memoryDB.set('products', [

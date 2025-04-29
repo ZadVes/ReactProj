@@ -12,7 +12,9 @@ RUN npm install react-scripts@5.0.1
 COPY client ./
 
 # 4. Собираем проект (теперь public будет в правильном месте)
-RUN ./node_modules/.bin/react-scripts build 
+ENV NODE_ENV=production
+WORKDIR /app/client
+RUN npm run build
 
 FROM nginx:alpine
 COPY --from=builder /app/build /usr/share/nginx/html

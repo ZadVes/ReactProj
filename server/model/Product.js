@@ -14,7 +14,11 @@ const productSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  orders: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Order'
+  }]
 });
 
 module.exports = mongoose.model('Product', productSchema);

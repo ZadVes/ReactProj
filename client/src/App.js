@@ -77,7 +77,7 @@ class App extends Component{
                     <Routes>
                         <Route path="/" element={
                             <div className='scrol-panel'>
-                                {products.map(product => (
+                                {products && products.map(product => (
                                     <ShopList
                                         key={product._id}
                                         id={product._id}
