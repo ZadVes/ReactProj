@@ -20,3 +20,12 @@ export const fetchProducts = async (params = {}) => {
 };
 
 export const createOrder = (orderData) => API.post('/orders', orderData);
+
+export const fetchOrders = async () => {
+  try {
+    const response = await API.get('/orders');
+    return response.data;
+  } catch (error) {
+    throw new Error(error.response?.data?.message || 'Не удалось загрузить заказы');
+  }
+};

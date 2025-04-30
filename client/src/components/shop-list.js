@@ -17,6 +17,7 @@ class ShopList extends React.Component{
     };
 
     render(){
+        console.log('Rendering product:', this.props.name);
         return(
             <div className="tesla-flex-card">
                 <img className="photo" src={this.props.url} alt="My Image"/>
@@ -30,8 +31,20 @@ class ShopList extends React.Component{
                     <div className="more-information">
                         {this.props.inf}
                     </div>
+                    <div className="specs-text">
+                        {this.props.specs}
+                    </div>
+                    {this.props.specs && this.props.specs.length > 0 && (
+                        <div className="specs-list">
+                            <ul>
+                                {this.props.specs.map((spec, index) => (
+                                    <li key={index}>{spec}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
                     <div className="button-flex">
-                        <button className={`button-order ${this.props.buttonClassName || ""}`}onClick={this.handleOrder}>
+                        <button className={`button-order ${this.props.buttonClassName || ""}`} onClick={this.handleOrder}>
                             Order Now
                         </button>
                         <button className={`button-more ${this.props.buttonClassName || ""}`}>

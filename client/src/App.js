@@ -41,8 +41,9 @@ class App extends Component{
     //Обрабатывает локальные данные
     loadProducts = async () => {
         try {
-            const response = await fetchProducts();
-            this.setState({ products: response.data, loading: false });
+            const products = await fetchProducts();
+            console.log("Загруженные продукты:", products);
+            this.setState({ products, loading: false });
         } catch (error) {
             console.error("Ошибка при загрузке товаров", error);
             this.setState({
@@ -73,6 +74,16 @@ class App extends Component{
                 <div className="up">
                     <div className={`header ${showHeader ? "" : "hidden"}`}>
                         <Header />
+                    </div>
+                    <div>
+                        <h1>Список товаров:</h1>
+                        <ul>
+                        {products.map(product => (
+                            <li key={product._id}>
+                            {product.name} — ${product.price}
+                            </li>
+                        ))}
+                        </ul>
                     </div>
                     <Routes>
                         <Route path="/" element={
