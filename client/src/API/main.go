@@ -8,15 +8,15 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Временное хранилище данных (в памяти)
+
 var items = []string{"Элемент 1", "Элемент 2", "Элемент 3"}
 
-// Обработчик GET /items — получение всех элементов
+
 func getItems(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"items": items})
 }
 
-// Обработчик POST /items — добавление нового элемента
+
 func createItem(c *gin.Context) {
 	var newItem struct {
 		Name string `json:"name"`
@@ -34,7 +34,7 @@ func createItem(c *gin.Context) {
 func main() {
 	r := gin.Default()
 
-	// Разрешаем CORS для React-фронтенда
+	
 	r.Use(cors.New(cors.Config{
 		AllowOrigins:     []string{"http://localhost:3000"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "DELETE"},
@@ -43,9 +43,9 @@ func main() {
 		MaxAge:           12 * time.Hour,
 	}))
 
-	// Определяем маршруты API
+	
 	r.GET("/items", getItems)
 	r.POST("/items", createItem)
 
-	r.Run(":8080") // Запуск сервера на порту 8080
+	r.Run(":8080") 
 }

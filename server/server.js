@@ -1,4 +1,4 @@
-const path = require('path'); // Добавьте эту строку
+const path = require('path'); 
 const express = require('express');
 const { connectDB } = require('./config/db');
 const productRoutes = require('./routers/productRouts');
@@ -11,7 +11,6 @@ app.use(express.json());
 
 connectDB();
 
-// Базовый маршрут
 app.get('/', (req, res) => {
   res.json({
     message: 'API is working',
@@ -22,11 +21,11 @@ app.get('/', (req, res) => {
   });
 });
 
-// API маршруты
+
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 
-// Production-режим (для фронтенда)
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, 'client/build')));
   

@@ -1,6 +1,5 @@
 const Order = require('../model/Order');
 
-// Создание заказа
 exports.createOrder = async (req, res) => {
   try {
     const order = new Order(req.body);
@@ -11,7 +10,6 @@ exports.createOrder = async (req, res) => {
   }
 };
 
-// Получение всех заказов
 exports.getAllOrders = async (req, res) => {
   try {
     const orders = await Order.find();
@@ -21,7 +19,6 @@ exports.getAllOrders = async (req, res) => {
   }
 };
 
-// Получение заказа по ID
 exports.getOrderById = async (req, res) => {
   try {
     const order = await Order.findById(req.params.id);
@@ -34,7 +31,7 @@ exports.getOrderById = async (req, res) => {
   }
 };
 
-// Обновление заказа
+
 exports.updateOrder = async (req, res) => {
   try {
     const order = await Order.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -44,7 +41,7 @@ exports.updateOrder = async (req, res) => {
   }
 };
 
-// Удаление заказа
+
 exports.deleteOrder = async (req, res) => {
   try {
     await Order.findByIdAndDelete(req.params.id);

@@ -1,7 +1,7 @@
 //const { redisGet, redisSet, memoryDB } = require('../config/db');
 const Product = require('../model/Product');
 
-// 1. Функция получения всех продуктов
+
 const getProducts = async (req, res) => {
   try {
     const products = await Product.find();
@@ -11,7 +11,7 @@ const getProducts = async (req, res) => {
   }
 };
 
-// 2. Функция получения продукта по ID
+
 const getProductById = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -24,7 +24,7 @@ const getProductById = async (req, res) => {
   }
 };
 
-// 3. Функция создания продукта
+
 const createProduct = async (req, res) => {
   const product = new Product({
     name: req.body.name,
@@ -39,7 +39,7 @@ const createProduct = async (req, res) => {
   }
 };
 
-// 4. Функция обновления продукта
+
 const updateProduct = async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
@@ -57,7 +57,7 @@ const updateProduct = async (req, res) => {
   }
 };
 
-// Экспортируем все функции
+
 module.exports = {
   getProducts,
   getProductById,

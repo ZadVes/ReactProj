@@ -5,11 +5,11 @@ const Order = require('./model/Order');
 const seedData = async () => {
   await connectDB();
 
-  // Очистка коллекций
+  
   await Product.deleteMany();
   await Order.deleteMany();
 
-  // Добавление тестовых товаров
+  
   const products = await Product.insertMany([
     {
       name: "Model S",
@@ -34,7 +34,7 @@ const seedData = async () => {
     }
   ]);
 
-  // Добавление тестового заказа
+  
   await Order.create({
     products: [
       { productId: products[0]._id, quantity: 2 },

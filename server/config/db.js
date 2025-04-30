@@ -4,14 +4,12 @@ const { promisify } = require('util');
 
 require('dotenv').config();
 
-// In-memory хранилище
 const memoryDB = new Map();
 memoryDB.set('products', [
   { id: 1, name: 'Model Y', price: '$299/mo' },
   { id: 2, name: 'Cybertruck', price: '$749/mo' }
 ]);
 
-// MongoDB подключение
 const connectDB = async () => {
   try {
     await mongoose.connect(process.env.MONGO_URI);
@@ -22,7 +20,6 @@ const connectDB = async () => {
   }
 };
 
-// Redis подключение
 const redisClient = redis.createClient({
   host: process.env.REDIS_HOST || 'localhost',
   port: process.env.REDIS_PORT || 6379

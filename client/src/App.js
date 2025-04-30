@@ -38,7 +38,7 @@ class App extends Component{
     componentWillUnmount() {
         window.removeEventListener("scroll", this.handleScroll);
     }
-    //Обрабатывает локальные данные
+    
     loadProducts = async () => {
         try {
             const products = await fetchProducts();
