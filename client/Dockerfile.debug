@@ -1,0 +1,26 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Копируем package.json из клиента
+COPY client/package*.json ./
+
+# Печатаем его (просто для логов)
+RUN echo "===== package.json inside container ====="
+RUN cat package.json || true
+
+# Ставим зависимости
+RUN npm install || true
+
+# Проверяем, есть ли react-scripts
+RUN echo "===== react-scripts presence ====="
+RUN ls -la node_modules | grep react-scripts || echo "react-scripts NOT FOUND"
+
+# Копируем весь код клиента
+COPY client/ ./
+
+RUN echo "===== client folder ====="
+RUN ls -la || true
+
+# Вместо сборки — останавливаемся и запускаем shell
+CMD ["sh"]

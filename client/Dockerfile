@@ -1,21 +1,30 @@
 FROM node:16 AS builder
 WORKDIR /app
 
+# Копируем package.json именно из client/
+COPY package.json package-lock.json ./
 
-COPY package*.json ./
-
-
+# Устанавливаем зависимости
 RUN npm install
-RUN npm install react-scripts@5.0.1
 
+# Копируем весь клиентский код
+COPY . .
 
-COPY client ./
-
-
-ENV NODE_ENV=production
-WORKDIR /app/client
+# Собираем production build
 RUN npm run build
 
-FROM nginx:alpine
+
+# --- Stage 2: NGINX ---
+FROM nginx:stable-alpine
+
+# Удаляем дефолтный конфиг
+RUN rm /etc/nginx/conf.d/default.conf
+
+# Копируем наш конфиг
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Копируем билд
 COPY --from=builder /app/build /usr/share/nginx/html
-COPY client/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
