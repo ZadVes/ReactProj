@@ -1,3 +1,54 @@
-2025-11-23_12:53:52.48789 Server listening on 0.0.0.0 port 22.
-2025-11-23_12:53:52.48814 Server listening on :: port 22.
-2025-11-23_12:53:57.21152 Received signal 15; terminating.
+2025-11-24_02:31:47.07861 Server listening on 0.0.0.0 port 22.
+2025-11-24_02:31:47.07888 Server listening on :: port 22.
+2025-11-24_02:32:23.91657 banner exchange: Connection from 172.18.0.1 port 51040: invalid format
+2025-11-24_02:32:24.94627 banner exchange: Connection from 172.18.0.1 port 51046: invalid format
+2025-11-24_02:32:25.79092 banner exchange: Connection from 172.18.0.1 port 51060: invalid format
+2025-11-24_02:32:32.80883 banner exchange: Connection from 172.18.0.1 port 51070: invalid format
+2025-11-24_02:32:32.98259 banner exchange: Connection from 172.18.0.1 port 59104: invalid format
+2025-11-24_02:32:33.12564 banner exchange: Connection from 172.18.0.1 port 59106: invalid format
+2025-11-24_02:32:38.17004 banner exchange: Connection from 172.18.0.1 port 59120: invalid format
+2025-11-24_02:33:08.19372 banner exchange: Connection from 172.18.0.1 port 42890: invalid format
+2025-11-24_02:33:21.27795 banner exchange: Connection from 172.18.0.1 port 57032: invalid format
+2025-11-24_02:33:22.29911 banner exchange: Connection from 172.18.0.1 port 57038: invalid format
+2025-11-24_02:33:22.51872 banner exchange: Connection from 172.18.0.1 port 51158: invalid format
+2025-11-24_02:33:22.75437 banner exchange: Connection from 172.18.0.1 port 51170: invalid format
+2025-11-24_02:33:23.04309 banner exchange: Connection from 172.18.0.1 port 51178: invalid format
+2025-11-24_02:33:23.36967 banner exchange: Connection from 172.18.0.1 port 51188: invalid format
+2025-11-24_02:33:23.63536 banner exchange: Connection from 172.18.0.1 port 51190: invalid format
+2025-11-24_02:33:23.85062 banner exchange: Connection from 172.18.0.1 port 51198: invalid format
+2025-11-24_02:33:24.06704 banner exchange: Connection from 172.18.0.1 port 51212: invalid format
+2025-11-24_02:33:29.21906 banner exchange: Connection from 172.18.0.1 port 51222: invalid format
+2025-11-24_02:33:29.38705 banner exchange: Connection from 172.18.0.1 port 36934: invalid format
+2025-11-24_02:33:29.53662 banner exchange: Connection from 172.18.0.1 port 36948: invalid format
+2025-11-24_02:33:29.70780 banner exchange: Connection from 172.18.0.1 port 36964: invalid format
+2025-11-24_02:33:29.87277 banner exchange: Connection from 172.18.0.1 port 36968: invalid format
+2025-11-24_02:33:30.02257 banner exchange: Connection from 172.18.0.1 port 36970: invalid format
+2025-11-24_02:33:30.19192 banner exchange: Connection from 172.18.0.1 port 36980: invalid format
+2025-11-24_02:33:30.63434 banner exchange: Connection from 172.18.0.1 port 36992: invalid format
+2025-11-24_02:33:30.80830 banner exchange: Connection from 172.18.0.1 port 36996: invalid format
+2025-11-24_02:33:30.95037 banner exchange: Connection from 172.18.0.1 port 36998: invalid format
+2025-11-24_02:34:12.62387 banner exchange: Connection from 172.18.0.1 port 37006: invalid format
+2025-11-24_02:34:12.81242 banner exchange: Connection from 172.18.0.1 port 49262: invalid format
+2025-11-24_02:34:12.95484 banner exchange: Connection from 172.18.0.1 port 49272: invalid format
+2025-11-24_02:34:13.13110 banner exchange: Connection from 172.18.0.1 port 49282: invalid format
+2025-11-24_02:35:32.44556 Connection closed by 172.18.0.1 port 49298
+2025-11-24_02:40:19.33328 banner exchange: Connection from 172.18.0.1 port 51952: invalid format
+2025-11-24_02:40:19.79904 banner exchange: Connection from 172.18.0.1 port 51964: invalid format
+2025-11-24_02:40:19.99165 banner exchange: Connection from 172.18.0.1 port 51972: invalid format
+2025-11-24_02:40:20.31902 banner exchange: Connection from 172.18.0.1 port 51980: invalid format
+2025-11-24_02:40:20.53718 banner exchange: Connection from 172.18.0.1 port 51992: invalid format
+2025-11-24_02:40:20.70339 banner exchange: Connection from 172.18.0.1 port 52004: invalid format
+2025-11-24_02:41:34.60408 Connection closed by 172.18.0.1 port 52010
+2025-11-24_02:47:24.27159 banner exchange: Connection from 172.18.0.1 port 43442: invalid format
+2025-11-24_02:47:25.30643 banner exchange: Connection from 172.18.0.1 port 43446: invalid format
+2025-11-24_02:48:39.70084 Connection closed by 172.18.0.1 port 40700
+2025-11-24_02:48:39.70110 Connection closed by 172.18.0.1 port 40714
+2025-11-24_02:48:45.65824 banner exchange: Connection from 172.18.0.1 port 60646: invalid format
+2025-11-24_02:48:45.73825 banner exchange: Connection from 172.18.0.1 port 60652: invalid format
+2025-11-24_02:48:46.99388 banner exchange: Connection from 172.18.0.1 port 60662: invalid format
+2025-11-24_02:48:47.32392 banner exchange: Connection from 172.18.0.1 port 60678: invalid format
+2025-11-24_02:48:47.62895 banner exchange: Connection from 172.18.0.1 port 60688: invalid format
+2025-11-24_02:49:21.28258 banner exchange: Connection from 172.18.0.1 port 60704: invalid format
+2025-11-24_02:49:21.74863 banner exchange: Connection from 172.18.0.1 port 36040: invalid format
+2025-11-24_02:49:22.04009 banner exchange: Connection from 172.18.0.1 port 36056: invalid format
+2025-11-24_02:51:09.27798 Connection closed by 172.18.0.1 port 36070

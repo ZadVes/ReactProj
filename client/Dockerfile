@@ -1,7 +1,7 @@
 FROM node:16 AS builder
 WORKDIR /app
 
-# Копируем package.json именно из client/
+# Копируем package.json
 COPY package.json package-lock.json ./
 
 # Устанавливаем зависимости
@@ -14,7 +14,6 @@ COPY . .
 RUN npm run build
 
 
-# --- Stage 2: NGINX ---
 FROM nginx:stable-alpine
 
 # Удаляем дефолтный конфиг

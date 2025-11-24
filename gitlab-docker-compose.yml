@@ -2,23 +2,26 @@ version: '3.8'
 
 services:
   gitlab:
-    image: gitlab/gitlab-ce:latest
-    container_name: gitlab2
-    restart: unless-stopped
+    image: gitlab/gitlab-ce:latest #официальный образ gitlab community
+    container_name: gitlab2 # имя контейнера
+    restart: unless-stopped # автоматическая перезагрузка контейнера
     hostname: gitlab.local
     environment:
+    # блок конфигурации для gitlab (Внешний URL, автоматичсекий редирект, путь к ssl-сертификату и приватному ключу)
       GITLAB_OMNIBUS_CONFIG: |
-        external_url 'https://gitlab.local';
-        nginx['redirect_http_to_https'] = true;
+        external_url 'https://gitlab.local'; 
+        nginx['redirect_http_to_https'] = true; 
         nginx['ssl_certificate'] = "/custom-ssl/gitlab.local.crt";
         nginx['ssl_certificate_key'] = "/custom-ssl/gitlab.local.key";
+    #Пробрасываю порты
     ports:
       - "4443:443"
       - "4080:80"
       - "4022:22"
     volumes:
+    # в данном блоке хранится конфигурация, логи и данные gitlab, а также SSl-сертификаты и ключи с хоста
       - ./gitlab/config:/etc/gitlab
       - ./gitlab/logs:/var/log/gitlab
       - ./gitlab/data:/var/opt/gitlab
-      - ./proxy/certbot/live/gitlab.local/fullchain.pem:/custom-ssl/gitlab.local.crt:ro
-      - ./proxy/certbot/live/gitlab.local/privkey.pem:/custom-ssl/gitlab.local.key:ro
+      - C:/Users/nikit/OneDrive/Документы/GitHub/ReactProj/proxy/certbot/live/gitlab.local/fullchain.pem:/custom-ssl/gitlab.local.crt:ro
+      - C:/Users/nikit/OneDrive/Документы/GitHub/ReactProj/proxy/certbot/live/gitlab.local/privkey.pem:/custom-ssl/gitlab.local.key:ro

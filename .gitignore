@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+gitlab/data/
+gitlab/logs/
+gitlab/config/initial_root_password
+gitlab/config/gitlab.rb
+*.socket

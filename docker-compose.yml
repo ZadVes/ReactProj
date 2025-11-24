@@ -1,49 +1,50 @@
 
 services:
   mongo:
-    image: mongo:5.0
-    ports: ["27017:27017"]
-    volumes: [mongo-data:/data/db]
+    image: mongo:5.0 # образ mongo
+    ports: ["27017:27017"] # выделенный порт
+    volumes: [mongo-data:/data/db] # хранилище БД
     environment:
+    # данные администратора БД
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
       MONGO_INITDB_DATABASE: tesla_shop
     restart: unless-stopped
 
   redis:
-    image: redis:alpine
-    ports: ["6379:6379"]
-    volumes: [redis-data:/data]
+    image: redis:alpine # образ redis
+    ports: ["6379:6379"] # проброска портов
+    volumes: [redis-data:/data] # хранилище
     restart: unless-stopped
 
   server:
     build: 
-      context: .
-      dockerfile: server/Dockerfile
+      context: . # контекст сборки (корень проекта)
+      dockerfile: server/Dockerfile # файл относящийся к backend
     ports: ["5000:5000"]
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
+      - MONGO_INITDB_ROOT_USERNAME=root # дублирование параметров mongo
       - MONGO_INITDB_ROOT_PASSWORD=example
-      - NODE_ENV=development
+      - NODE_ENV=development #режим разработки для backend
       - MONGO_URI=mongodb://root:example@mongo:27017/tesla_shop?authSource=admin
     depends_on: [mongo, redis]
     env_file:
-      - ./server/.env
+      - ./server/.env # подгрузка env переменных из файла
     restart: unless-stopped
 
   client:
     build:
-      context: ./client
+      context: ./client # контекст сборки клиента
       dockerfile: Dockerfile
     #volumes:
     #  - ./client:/app/client
     #  - /app/node_modules  # Изолируем зависимости
     ports:
-      - "8080:80" 
+      - "8080:80" # проброска порта
     environment:
-      - NODE_ENV=production
-    depends_on: [server]
+      - NODE_ENV=production # frontend работает в production
+    depends_on: [server] # запуст клиента, только после запуска сервера
 
 volumes:
-  mongo-data:
-  redis-data:
+  mongo-data: # определение docker volume для mongoDB
+  redis-data: #volume для Redis
